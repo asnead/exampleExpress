@@ -1,0 +1,21 @@
+- var title, angular, pageTitle;
+block variables
+- pageTitle = title;
+- if (title && title.indexOf(titleSuffix) < 0 && title.indexOf("easyJet") !== 0) { pageTitle = title + titleSuffix }
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title=pageTitle
+    link(rel="stylesheet", href="css/screen.css")
+    meta(name="description" content=title)
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  body
+    //-.adaptive
+    button.navMenuButton &equiv;
+    .content
+      block body
+      footer.navigationHorizontal
+      footer.license
+      block scripts
+        script(src="plws.js")

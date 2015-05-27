@@ -1,0 +1,101 @@
+img,
+canvas,
+iframe,
+video,
+svg {
+  max-width: 100%;
+}
+.overflow-container {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.adaptive {
+  color: #808080;
+  position: fixed;
+}
+.adaptive:after {
+  content: "1156 (Daddy Bear)";
+}
+@media screen and (max-width: 1000px) {
+  .adaptive:after {
+    content: "1000 (Momma Bear)";
+  }
+}
+@media screen and (max-width: 720px) {
+  .adaptive:after {
+    content: "720 (Baby Bear)";
+  }
+}
+@media screen and (max-width: 360px) {
+  .adaptive:after {
+    content: "360 (Teddy Bear)";
+  }
+}
+/*
+"
+I am not dealing with font size insanity. Here is the deal.
+The main body/content font size is zero
+Font sizes increase/decrease relative to that with simple sequential integers:
+-2, -1, 0, 1, 2, 3, 4, 5
+Each one is "a bit" larger than the previous as defined here
+I generally only need h1-h3,
+so h3 should be size 1 (just a bit larger than normal text),
+h2 should be size 2,
+and h1 should be size 3
+Use REM units for fanciness but also include pixels for unsupported browsers
+http://snook.ca/archives/html_and_css/font-size-with-rem
+UPDATE: 2014-03-02 rems cause glitches with Chrome. Ditching.
+"
+*/
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+}
+button {
+  font-size: 20px;
+  line-height: 30px;
+}
+p {
+  margin-top: 1.5em;
+  margin-bottom: 3em;
+}
+h1,
+h2,
+h3 {
+  font-family: "Julius Sans One", sans-serif;
+  margin: 1em 0;
+}
+h1 {
+  font-size: 36px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 28px;
+  line-height: 28px;
+}
+h3 {
+  font-size: 24px;
+  line-height: 24px;
+}
+code,
+pre {
+  font-family: Inconsolata, monospace;
+}
+pre {
+  font-size: 14px;
+  line-height: 21px;
+}
+@media screen and (max-width: 1000px) {
+  body {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  pre {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
