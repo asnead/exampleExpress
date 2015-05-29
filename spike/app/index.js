@@ -21,6 +21,7 @@ app.use(stylus.middleware({
   compile: compile
 }));
 app.use(express.static(path.join(__dirname + '/public')));
+app.use(express.static(path.join(__base + '/wwwroot')));
 
 app.use(require('./site/router'));
 app.use("/api", require('./users/router'));

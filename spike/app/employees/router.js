@@ -2,18 +2,16 @@ var customer = require("./customerModel");
 var log = require("bole")("customers/router");
 var router = require("express").Router();
 
-function getCustomers(req, res) {
-  customer.findAll(function (error, customers) {
-    if (error) {
-      log.error(error, "error finding customers");
-      res.status(500).send(error);
-      return;
+function getEmployees(req, res, next) {
+  customer.findAll(function (err, customers) {
+    if (err) {
+      return next(err)
     }
     res.json(customers);
   });
 }
 
-function createCustomer(req, res) {
+function createCustomer(req, res, next) {
   res.status(201).send();
 }
 
