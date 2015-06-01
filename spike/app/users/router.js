@@ -1,16 +1,27 @@
+var User = require("./userModel");
+var needUser = require("../middleware").needUser;
 var router = require("express").Router();
-var needUser = require("./needUser");
 
-function signIn(req, res) {
-  /* eslint no-unused-vars:0 */
-  //...
+function getEmployees(req, res, next) {
+  User.findAllEmployees(function (err, employees) {
+    if (err) {
+      return next(err)
+    }
+    res.json(employees);
+  });
 }
 
-function profile(req, res) {
-  res.render("users/profile");
+function createUser(req, res, next) {
+  res.status(201).send();
 }
 
-router.post("/users/sign-in", signIn);
-router.get("/users/profile", needUser, profile);
+function signIn(req, res, next) {
+  res.status(200).send();
+}
+
+router.post("/users", createUser );
+router.get("/users/employees", getEmployees);
+router.post("/users/sign-in", needUser, signIn);
+router.get("/users/profile", needUser);
 
 module.exports = router;
