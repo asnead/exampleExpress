@@ -2,10 +2,12 @@
   "name": "easyJet_Roster_Engine",
   "version": "0.0.1",
   "description": "easyJet Roster Engine",
+  "main": "app/server.js",
   "scripts": {
     "test": "./bin/test.sh",
     "start": "./app/server.js | bistre",
-    "lint": "./bin/lint.sh"
+    "lint": "./bin/lint.sh",
+    "build": "./bin/build_js.sh"
   },
   "repository": {
     "type": "git"
@@ -16,11 +18,14 @@
   "author": "Atos",
   "license": "MIT",
   "dependencies": {
+    "async": "^1.1.0",
     "bole": "2.0.0",
+    "compression": "^1.4.4",
     "express": "4.11.0",
     "jade": "^1.10.0",
     "jstransformer-markdown-it": "0.0.2",
     "markdown-it": "^4.2.1",
+    "mongodb": "^2.0.33",
     "mongoose": "^4.0.4",
     "nib": "^1.1.0",
     "stylus": "^0.51.1"

@@ -4,14 +4,7 @@ var join = require("path").join;
 var router = new express.Router();
 
 function home(req, res) {
-  res.render("site/home", function(err, html) {
-    if (err) {
-      console.log(err);
-      res.redirect('/404');
-    } else { 
-      res.end(html);
-    }
-  });
+  res.render("site/home") 
 }
 
 function team(req, res) {

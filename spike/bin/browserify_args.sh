@@ -1,3 +1,8 @@
 #!/bin/bash
 cd $(dirname "$0")/..
-find app/browser -maxdepth 1 -type f -name "*.js" -not -name "*test.js" -exec echo {} \;
+echo \
+  -e $(find app/browser -name '*.js' -not -name '*test.js' -print0 | \
+    xargs -0 -I file echo file | \
+    sed -e 's/^/-r \.\//' | \
+    sed -e 's/\.js$//' | \
+    xargs)

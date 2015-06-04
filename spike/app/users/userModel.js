@@ -6,15 +6,15 @@ var UserSchema = new Schema({
   lastname:           {type: String},
   username:           {type: String, required: true, index: {unique: true}},
   password:           {type: String, required: true},
-  role:               {type: String, requred: true},
+  userType:           {type: String, requred: true},
   jobRole:            {
-                        type: String,
+                        role: {type: String},
                         cover: [{type: String}]
                       }     
 });
 
 UserSchema.statics.findAllEmployees = function(callback) {
-  this.find({role: 'Employee'}, function(err, employees) {
+  this.find({userType: 'employee'}, function(err, employees) {
     if (err) { 
       return callback(err) 
     }

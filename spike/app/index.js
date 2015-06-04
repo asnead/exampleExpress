@@ -4,6 +4,7 @@ var path = require("path");
 var stylus = require("stylus");
 var nib = require("nib");
 var app = express();
+var compression = require('compression');
 
 function compile(str, path) {
   return stylus(str)
@@ -20,9 +21,9 @@ app.use(stylus.middleware({
   dest: __dirname + "/public/css",
   compile: compile
 }));
+app.use(compression());
 app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.static(path.join(__base + "/wwwroot")));
-app.use("/api", express.static(path.join(__dirname + "/public")));
 app.use(require("./site/router"));
 app.use("/api", require("./users/router"));
 
