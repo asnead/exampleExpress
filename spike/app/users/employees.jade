@@ -1,1 +1,10 @@
 extends ../site/layout 
+block variables
+  varjk
+block body
+  section#content= markup
+block append scripts
+  script#initial-state(type="application/json").
+    !{employees}
+  script.
+    require('/app/browser/app.react')

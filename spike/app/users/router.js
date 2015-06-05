@@ -3,13 +3,23 @@ var join = require("path").join;
 var User = require("./userModel");
 var needUser = require("../middleware").needUser;
 var router = require("express").Router();
+var React = require('react');
+var employeeList = React.createFactory(require('../browser/employeeList.react'));
 
 function getEmployees(req, res, next) {
   User.findAllEmployees(function (err, employees) {
     if (err) {
       return next(err)
     }
-    res.render("users/employees", {employees: employees});
+    var markup = React.renderToString(
+        employeeList({employees: employees})
+        
+    );
+
+    res.render("users/employees", {
+      markup: markup,
+      employees: JSON.stringify(employees)
+    });
   });
 }
 

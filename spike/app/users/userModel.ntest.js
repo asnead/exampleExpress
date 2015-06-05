@@ -1,8 +1,8 @@
 var test = require("tape");
-var customer = require("./customerModel");
+var User = require("./userModel");
 
-test("customer.findAll should return an array", function(assert) {
-  customer.findAll(function(error, result) {
+test("User.findAllEmployees should return an array", function(assert) {
+  User.findAllEmployees(function(error, result) {
     assert.error(error);
     assert.ok(Array.isArray(result));
     assert.end();
