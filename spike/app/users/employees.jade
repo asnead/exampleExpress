@@ -1,8 +1,8 @@
 extends ../site/layout 
 block variables
-  varjk
 block body
-  section#content= markup
+  div#content
+    !{markup}
 block append scripts
   script#initial-state(type="application/json").
     !{employees}
