@@ -1,10 +1,9 @@
 extends ../site/layout 
 block variables
 block body
-  div#content
-    !{markup}
+  div#content !{markup}
 block append scripts
   script#initial-state(type="application/json").
     !{employees}
   script.
-    require('/app/browser/app.react')
+    require('/app/browser/app.jsx')

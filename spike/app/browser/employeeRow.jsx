@@ -6,10 +6,10 @@ module.exports = EmployeeRow = React.createClass({displayName: "EmployeeRow",
     var lastname = this.props.employee.lastname;
     var role = this.props.employee.jobRole.role;
     return (
-        React.createElement("tr", null, 
-            React.createElement("td", null, firstname + " " + lastname), 
-            React.createElement("td", null, role)
-        )
+        <tr>
+          <td>{firstname + " " + lastname}</td>
+          <td>{role}</td>
+        </tr>
     );
   }
 });

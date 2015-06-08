@@ -4,7 +4,7 @@ var User = require("./userModel");
 var needUser = require("../middleware").needUser;
 var router = require("express").Router();
 var React = require('react');
-var employeeList = React.createFactory(require('../browser/employeeList.react'));
+var employeeList = React.createFactory(require('../browser/employeeList'));
 
 function getEmployees(req, res, next) {
   User.findAllEmployees(function (err, employees) {

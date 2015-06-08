@@ -5,6 +5,7 @@ var stylus = require("stylus");
 var nib = require("nib");
 var app = express();
 var compression = require('compression');
+require('node-jsx').install({ extension: '.jsx' });
 
 function compile(str, path) {
   return stylus(str)

@@ -1,5 +1,5 @@
 var React = require("react");
-var EmployeeRow = require("./employeeRow.react");
+var EmployeeRow = require("./employeeRow.jsx");
 
 module.exports = EmployeeList = React.createClass({displayName: "EmployeeList",
   render: function() {
