@@ -2,10 +2,8 @@
 var app = require("./index");
 var config = require("./config");
 var mongoose = require("mongoose");
+var log = require('./log');
 
-var bole = require("bole");
-var log = bole(__filename);
-bole.output({level: "debug", stream: process.stdout});
 process.on("uncaughtException", function uncaught(exception) {
   log.error(exception, " uncaught exception. Process will exit");
   setImmediate(function exit() { 
@@ -14,15 +12,34 @@ process.on("uncaughtException", function uncaught(exception) {
 });
 log.info("server process starting");
 
-var db;
+function gracefulShutdown() {
+  log.info("server shutting down gracefully due to kill signal");
+  if (!server) { 
+    process.exit();
+  }
+  server.close(function() {
+    log.debug("server connections gracefully closed. Exiting");
+    process.exit();
+  });
+
+  setTimeout(function() {
+    log.debug("server exiting abruptly. Connections did not complete quickly.");
+    process.exit();
+  }, 10 * 1000);
+}
+process.on("SIGTERM", gracefulShutdown);
+
+var db = mongoose.connection;
 
 function DBConnect() {
   mongoose.connect(config.dbURL);
-  db = mongoose.connection;
 }
 
 db.on("error", function(error) {
-  console.error(console, 'connection error:'));
+  console.error(console, 'connection error: ');
+  db.disconnect();
+});
+
 db.once("open", function(callback) {
   log.info("connected to: " + config.dbURL);
 });
