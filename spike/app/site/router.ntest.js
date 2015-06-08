@@ -1,23 +1,20 @@
 var app = require("../testApp");
-var test = require("tape");
+var expect = require("chai").expect;
 
-test("app/site/router should serve the favicon", function (assert) {
-  app.get("/favicon.ico")
-    .expect(200)
-    .expect("Content-Type", /^image/)
-    .end(assert.end);
-});
+describe ("Main Site", function() {
 
-test("app/site/router should serve the home page", function (assert) {
-  app.get("/")
-    .expect(200)
-    .expect("Content-Type", "text/html; charset=utf-8")
-    .end(assert.end);
-});
+  it("app/site/router should serve the favicon", function(done) {
+    app.get("/favicon.ico")
+      .expect(200)
+      .expect("Content-Type", /^image/)
+      .end(done);
+  });
 
-test("app/site/router should serve the team page", function (assert) {
-  app.get("/team")
-    .expect(200)
-    .expect("Content-Type", "text/html; charset=utf-8")
-    .end(assert.end);
+  it("app/site/router should serve the home page", function(done) {
+    app.get("/")
+      .expect(200)
+      .expect("Content-Type", "text/html; charset=utf-8")
+      .end(done);
+  });
+
 });

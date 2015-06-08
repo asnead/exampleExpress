@@ -14,10 +14,11 @@ var UserSchema = new Schema({
 });
 
 UserSchema.statics.findAllEmployees = function(callback) {
-  this.find({userType: 'employee'}, function(err, employees) {
+  this.find({userType: "employee"}, function(err, employees) {
     if (err) { 
       return callback(err) 
     }
+    console.log(employees);
     return callback(null, employees);
   });
 };

@@ -1,10 +1,18 @@
-var test = require("tape");
 var User = require("./userModel");
+var sinon = require("sinon");
+var expect = require("chai").expect;
 
-test("User.findAllEmployees should return an array", function(assert) {
-  User.findAllEmployees(function(error, result) {
-    assert.error(error);
-    assert.ok(Array.isArray(result));
-    assert.end();
+describe ("User Model", function() {
+  it("User.findAllEmployees should return an array", function(done) {
+
+    var employees = ["Ming Chan", "Andrew Snead"];
+
+    sinon.stub(User, "find").yields(null, employees);
+
+    User.findAllEmployees(function(error, result) {
+      expect(error).to.not.be.true;
+      expect(Array.isArray(result)).to.be.ok;
+      done();
+    });
   });
 });

@@ -15,7 +15,6 @@ function getEmployees(req, res, next) {
         employeeList({employees: employees})
         
     );
-    console.log(markup)
 
     res.render("users/employees", {
       markup: markup,

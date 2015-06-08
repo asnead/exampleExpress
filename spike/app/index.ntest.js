@@ -1,13 +1,16 @@
 var app = require("./testApp");
-var test = require("tape");
+var expect = require("chai").expect;
 
-test("the express app should serve the favicon", function (assert) {
-  app.get("/favicon.ico")
-    .expect(200)
-    .expect("Content-Type", /^image/)
-    .end(assert.end);
-});
+describe("Parent routes", function() {
 
-test("the express app should 404 properly", function (assert) {
-  app.get("/this-path-not-found").expect(404).end(assert.end);
+  it("the express app should serve the favicon", function(done) {
+    app.get("/favicon.ico")
+      .expect(200)
+      .expect("Content-Type", /^image/)
+      .end(done);
+  });
+
+  it("the express app should 404 properly", function(done) {
+    app.get("/this-path-not-found").expect(404).end(done);
+  });
 });

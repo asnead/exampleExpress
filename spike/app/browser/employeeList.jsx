@@ -8,15 +8,15 @@ module.exports = EmployeeList = React.createClass({displayName: "EmployeeList",
       rows.push(React.createElement(EmployeeRow, {employee: employee, key: employee._id}));
     }.bind(this));
     return (
-        React.createElement("table", {style:{"borderSpacing": "10px"}}, 
-          React.createElement("thead", null, 
-              React.createElement("tr", null, 
-                  React.createElement("th", {style:{"fontWeight": "bold"}}, "Name"), 
-                  React.createElement("th", {style:{"fontWeight": "bold"}}, "Role")
-              )
-          ), 
-          React.createElement("tbody", null, rows)
-        )
+        <table style={{borderSpacing: "10px"}}> 
+          <thead> 
+              <tr> 
+                  <th style={{fontWeight: "bold"}}>Name</th> 
+                  <th style={{fontWeight: "bold"}}>Role</th> 
+              </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </table>
     );
   }
 });

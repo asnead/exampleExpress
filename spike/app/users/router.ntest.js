@@ -1,16 +1,22 @@
 var app = require("../testApp");
-var test = require("tape");
+var chai = require("chai").expect;
+var dbConnect = require("../testUtils");
 
-test("GET /api/customers should send JSON list", function (assert) {
-  app.get("/api/customers")
-    .expect(200)
-    .expect("Content-Type", "application/json; charset=utf-8")
-    .end(assert.end);
-});
+describe("User routes", function() {
+  
+  dbConnect();
 
-test("POST /api/customers should send 201", function (assert) {
-  app.post("/api/customers")
-    .send({name: "Barbara Doe"})
-    .expect(201)
-    .end(assert.end);
+  it("GET /api/users/employees should return rendered page", function(done) {
+    app.get("/api/users/employees")
+      .expect(200)
+      .expect("Content-Type", "text/html; charset=utf-8")
+      .end(done);
+  });
+
+  it("POST /api/employees should send 201", function(done) {
+    app.post("/api/employees")
+      .send({name: "Barbara Doe"})
+      .expect(201)
+      .end(done);
+  });
 });
