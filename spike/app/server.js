@@ -1,15 +1,13 @@
 #!/usr/bin/env node
+
+var errors = require("./errors/errors");
+process.on("uncaughtException", errors.onUncaughtException);
+
 var app = require("./index");
 var config = require("./config");
 var mongoose = require("mongoose");
 var log = require('./log');
 
-process.on("uncaughtException", function uncaught(exception) {
-  log.error(exception, " uncaught exception. Process will exit");
-  setImmediate(function exit() { 
-    process.exit(66);
-  }, 1000);
-});
 log.info("server process starting");
 
 function gracefulShutdown() {

@@ -24,7 +24,6 @@ function notFound(req, rest, next) {
 }
 
 function middleware(error, req, res, next) {
-  console.log('here');
   res.status(error.status || error.statusCode || 500);
   if (canWithstand(error)) {
     res.locals.error = "Database is down";

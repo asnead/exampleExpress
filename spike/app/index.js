@@ -21,14 +21,14 @@ app.set("views", __dirname);
 app.set("view engine", "jade");
 app.use(compression());
 app.use(stylus.middleware({
-  src: __dirname + "/public/stylus",
-  dest: __dirname + "/public/css",
+  src: __dirname + "/site",
+  dest: __base + "/wwwroot",
   compile: compile
 }));
 app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.static(path.join(__base + "/wwwroot")));
-app.use(require("./site/router"));
-app.use("/api", require("./users/router"));
+app.use(require("./site/pagesRoutes"));
+app.use("/api", require("./users/userRoutes"));
 app.use(errors.notFound);
 app.use(errors.middleware);
 

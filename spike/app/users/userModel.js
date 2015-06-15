@@ -18,7 +18,6 @@ UserSchema.statics.findAllEmployees = function(callback) {
     if (err) { 
       return callback(err) 
     }
-    console.log(employees);
     return callback(null, employees);
   });
 };
