@@ -5,3 +5,4 @@ logs/*.log
 Dockerfile
 fig.yml
 wwwroot/*.js
+wwwroot/*.css
