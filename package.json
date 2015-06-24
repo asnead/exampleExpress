@@ -1,7 +1,7 @@
 {
-  "name": "easyJet_Roster_Engine",
+  "name": "BBC_Financials",
   "version": "0.0.1",
-  "description": "easyJet Roster Engine",
+  "description": "BBC Financials",
   "main": "app/server.js",
   "scripts": {
     "test": "./bin/test.sh",
@@ -21,6 +21,7 @@
     "async": "^1.1.0",
     "bole": "2.0.0",
     "compression": "^1.4.4",
+    "elasticsearch": "^5.0.0",
     "express": "4.11.0",
     "jade": "^1.10.0",
     "jstransformer-markdown-it": "0.0.2",

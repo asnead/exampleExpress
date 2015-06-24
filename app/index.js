@@ -29,6 +29,7 @@ app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.static(path.join(__base + "/wwwroot")));
 app.use(require("./site/pagesRoutes"));
 app.use("/api", require("./users/userRoutes"));
+app.use("/api", require("./comparisons/comparisonRoutes"));
 app.use(errors.notFound);
 app.use(errors.middleware);
 
