@@ -2,36 +2,37 @@ extends ../site/layout
 block variables
   - title = "Comparisons" 
 block body
-  div.DIV_1
-    div.DIV_2
-    p.P_3
-      | Choose a CSR
-    div.DIV_4
-      input.INPUT_5(placeholder=' CSR', type='text')
-      ul.UL_6
-    p.P_7
-      | Choose a division
-    div.DIV_8
-      select.SELECT_9(name='CMStatDropdown')
-        option
-          | Select
-        option(value='94')
-          | BBC Worldwide 
-        option(value='73')
-          | BNATIRELND
-        option(value='81')
-          | BNATWALES
-    p.P_28
-      | Choose a time period
-    div.DIV_29
-      select.SELECT_30(name='CMStatDropdown')
-        option(value='select')
-          | Select
-        option(value='May 2015')
-          | May 2015
-    a.A_1(href='javascript:void(0)') GO!
+  section#comparison_container
+    div.DIV_1
+      div.DIV_2
+      p.P_3
+        | Choose a CSR
+      div.DIV_4
+        input.INPUT_5(placeholder=' CSR', type='text')
+        ul.UL_6
+      p.P_7
+        | Choose a division
+      div.DIV_8
+        select.SELECT_9(name='CMStatDropdown')
+          option
+            | Select
+          option(value='94')
+            | BBC Worldwide 
+          option(value='73')
+            | BNATIRELND
+          option(value='81')
+            | BNATWALES
+      p.P_28
+        | Choose a time period
+      div.DIV_29
+        select.SELECT_30(name='CMStatDropdown')
+          option(value='select')
+            | Select
+          option(value='May 2015')
+            | May 2015
+      a.A_1(href='javascript:void(0)') GO!
 
-  div.content 
+    div.content 
 block append scripts
   script.initial-state(type="application/json").
   script.

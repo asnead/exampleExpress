@@ -25,6 +25,3 @@ UserSchema.statics.findAllEmployees = function(callback) {
 var User = mongoose.model('User', UserSchema);
 
 module.exports = User;
-
-
-
