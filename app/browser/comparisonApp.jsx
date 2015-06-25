@@ -1,5 +1,5 @@
 var React = require("react");
-var ComparisonBox = React.createFactory(require("./comparisonBox.jsx"));
+var ComparisonBox = React.createFactory(require("./comparisonContainer.jsx"));
 
 React.render(
    ComparisonBox(),
