@@ -4,7 +4,7 @@ module.exports = ComparisonDropdown = React.createClass({displayName: "Compariso
   render:function() {
     return (
         <div>
-          <p className="P_7">{this.props.dropdownLabel}</p>
+          <p>{this.props.dropdownLabel}</p>
           <div className="DIV_8">
             <select className="SELECT_9">
               <option value="94">BBC Worldwide</option>
