@@ -8,7 +8,7 @@ module.exports = ComparisonBox = React.createClass({displayName: "ComparisonBox"
     var firstDropdown = "Choose a division";
     var secondDropdown = "Choose a time period";
     return (
-        <div className="DIV_1">
+        <div className="box">
           <ComparisonCSRSearch />
           <ComparisonDropdown dropdownLabel={firstDropdown} />
           <ComparisonDropdown dropdownLabel={secondDropdown} />
